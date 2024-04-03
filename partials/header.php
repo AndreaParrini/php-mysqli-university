@@ -31,7 +31,7 @@
                             <a class="nav-link" href="#">Dipartimenti</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Corsi</a>
+                            <a class="nav-link" href="/PHP/php-mysqli-university/components/courses.php">Corsi</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/PHP/php-mysqli-university/components/degrees.php">Corsi di Laurea</a>
