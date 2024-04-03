@@ -19,7 +19,7 @@ if ($connection && $connection->connect_error) {
 
 $sql1 = "SELECT * FROM `students` WHERE YEAR(date_of_birth) = 1990;";
 $result = $connection->query($sql1);
-var_dump($result);
+/* var_dump($result); */
 
 /* while ($row = $result->fetch_assoc()) {
     ['name' => $name, 'surname' => $surname, 'date_of_birth' => $dateOfBirth] = $row;
@@ -34,13 +34,42 @@ var_dump($result);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mysqli university</title>
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="./style.css">
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-body-tertiary">
+    <header class="border-bottom">
+        <nav class="navbar navbar-expand-lg bg-body-secondary w-100">
+            <img src="./images/logo.png" alt="Logo University">
+            <div class="d-flex justify-content-between">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="./index.php">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Studenti</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Professori</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Dipartimenti</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Corsi</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
     <div class="container">
-        <table class="table table-striped">
+        <table class="table table-striped mt-3">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -53,7 +82,7 @@ var_dump($result);
                     <th scope="col">Enrolment Date</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="table-group-divider">
                 <?php
                 while ($row = $result->fetch_assoc()) :
                     [
@@ -67,7 +96,7 @@ var_dump($result);
                         'email' => $email
                     ] = $row;
                 ?>
-                    <tr>
+                    <tr class="p-3">
                         <th scope="row"><?= $studentID; ?></th>
                         <td><?= $name; ?></td>
                         <td><?= $surname; ?></td>
