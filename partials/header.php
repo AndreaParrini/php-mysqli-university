@@ -33,6 +33,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Corsi</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/PHP/php-mysqli-university/components/degrees.php">Corsi di Laurea</a>
+                        </li>
                     </ul>
                 </div>
             </div>

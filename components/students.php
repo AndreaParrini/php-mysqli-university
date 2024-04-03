@@ -17,8 +17,16 @@ if ($connection && $connection->connect_error) {
     die;
 }
 
-$sql1 = "SELECT * FROM `students` WHERE YEAR(date_of_birth) = 1990;";
-$result = $connection->query($sql1);
+if (empty($_POST['yearOfBirth'])) {
+    $sql1 = "SELECT * FROM `students`";
+    $result = $connection->query($sql1);
+}
+
+if (!empty($_POST['yearOfBirth'])) {
+    $sql1 = "SELECT * FROM `students` WHERE YEAR(date_of_birth) = " . $_POST['yearOfBirth'];
+    $result = $connection->query($sql1);
+}
+
 /* var_dump($result); */
 
 /* while ($row = $result->fetch_assoc()) {
@@ -29,6 +37,24 @@ $result = $connection->query($sql1);
 <?php require_once __DIR__ . '/../partials/header.php'; ?>
 
 <div class="container">
+    <form action="" method="POST">
+        <div class="mb-3">
+            <label for="yearOfBirth" class="form-label">Search Student by Year of Birth</label>
+            <input type="number" class="form-control w-25" name="yearOfBirth" id="yearOfBirth" aria-describedby="emailHelp" min="1900" max="<?= date("Y") ?>">
+            <div id="emailHelp" class="form-text">Insert an year between 1900 and <?= date("Y") ?></div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <?php if ($result->num_rows != 0) : ?>
+        <div class="alert alert-success mt-3" role="alert">
+            Total Results : <?= $result->num_rows ?>
+        </div>
+    <?php else : ?>
+        <div class="alert alert-danger mt-3" role="alert">
+            Non ci sono risultati.
+            Total Results : <?= $result->num_rows ?>
+        </div>
+    <?php endif; ?>
     <table class="table table-striped mt-3">
         <thead>
             <tr>

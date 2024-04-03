@@ -16,7 +16,7 @@ if ($connection && $connection->connect_error) {
     die;
 }
 
-$sql1 = "SELECT * FROM `teachers`";
+$sql1 = "SELECT * FROM `degrees`";
 $result = $connection->query($sql1);
 /* var_dump($result); */
 
@@ -33,34 +33,31 @@ $result = $connection->query($sql1);
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
-                <th scope="col">Surname</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Office Address</th>
-                <th scope="col">Office Number</th>
+                <th scope="col">Level</th>
+                <th scope="col">Address</th>
                 <th scope="col">email</th>
+                <th scope="col">website</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
             <?php
             while ($row = $result->fetch_assoc()) :
                 [
-                    'id' => $teacherID,
+                    'id' => $degreeID,
                     'name' => $name,
-                    'surname' => $surname,
-                    'phone' => $phone,
-                    'office_address' => $officeAddress,
-                    'office_number' => $officeNumber,
-                    'email' => $email
+                    'level' => $level,
+                    'address' => $address,
+                    'email' => $email,
+                    'website' => $website,
                 ] = $row;
             ?>
                 <tr class="p-3">
-                    <th scope="row"><?= $teacherID; ?></th>
+                    <th scope="row"><?= $degreeID; ?></th>
                     <td><?= $name; ?></td>
-                    <td><?= $surname; ?></td>
-                    <td><?= $phone; ?></td>
-                    <td><?= $officeAddress; ?></td>
-                    <td><?= $officeNumber; ?></td>
+                    <td><?= $level; ?></td>
+                    <td><?= $address; ?></td>
                     <td><?= $email; ?></td>
+                    <td><?= $website; ?></td>
                 </tr>
             <?php endwhile; ?>
         </tbody>
