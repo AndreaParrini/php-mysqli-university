@@ -17,21 +17,37 @@ if ($connection && $connection->connect_error) {
     die;
 }
 
-$sql1 = "SELECT * FROM `courses`";
-$result = $connection->query($sql1);
+/* var_dump($_POST); */
 
-/* var_dump($result); */
+if (empty($_POST['semestre']) && empty($_POST['year'])) {
+    $sql1 = "SELECT * FROM `courses`";
+    $result = $connection->query($sql1);
+}
 
-/* while ($row = $result->fetch_assoc()) {
-    ['name' => $name, 'surname' => $surname, 'date_of_birth' => $dateOfBirth] = $row;
-    echo $name . ' ' . $surname . ' ' . $dateOfBirth;
-} */
+if (!empty($_POST['semestre']) && !empty($_POST['year'])) {
+    $sql1 = "SELECT * FROM `courses` WHERE `period` = '" . $_POST['semestre'] . "' AND `year` = " . $_POST['year'];
+    $result = $connection->query($sql1);
+}
 ?>
 <?php require_once __DIR__ . '/../partials/header.php'; ?>
 
 <div class="container">
     <h3 class="text-center text-uppercase m-3">Corsi</h3>
+    <form action="" method="post">
+        <div class="d-flex">
+            <select class="form-select" name="semestre">
+                <option selected disabled>Seleziona il semestre</option>
+                <option value="I Semestre">I Semestre</option>
+                <option value="II Semestre">II Semestre</option>
+            </select>
+            <input type="number" name="year" id="year" min="1" max="3">
+            <label for="year">Inserisci l'anno di riferimento</label>
+        </div>
 
+        <button type="submit" class="btn btn-primary">
+            Cerca
+        </button>
+    </form>
     <?php if ($result->num_rows != 0) : ?>
         <div class="alert alert-success mt-3" role="alert">
             Total Results : <?= $result->num_rows ?>
