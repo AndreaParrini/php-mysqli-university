@@ -28,7 +28,7 @@
                             <a class="nav-link" href="/PHP/php-mysqli-university/components/teachers.php">Professori</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Dipartimenti</a>
+                            <a class="nav-link" href="/PHP/php-mysqli-university/components/departments.php">Dipartimenti</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/PHP/php-mysqli-university/components/courses.php">Corsi</a>
