@@ -14,7 +14,7 @@
 <body class="bg-body-tertiary">
     <header class="border-bottom">
         <nav class="navbar navbar-expand-lg bg-body-secondary">
-            <img src="/PHP/php-mysqli-university/images/logo.png" alt="Logo University" style="max-width: 100px; max-height: 100px;">
+            <img class="m-2" src="/PHP/php-mysqli-university/images/logo.png" alt="Logo University" style="max-width: 80px; max-height: 80px;">
             <div class="d-flex justify-content-between">
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
