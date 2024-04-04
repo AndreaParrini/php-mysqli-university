@@ -37,6 +37,7 @@ if (!empty($_POST['yearOfBirth'])) {
 <?php require_once __DIR__ . '/../partials/header.php'; ?>
 
 <div class="container">
+    <h3 class="text-center text-uppercase m-3">Studenti</h3>
     <form action="" method="POST">
         <div class="mb-3">
             <label for="yearOfBirth" class="form-label">Search Student by Year of Birth</label>

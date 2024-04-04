@@ -33,6 +33,8 @@ $result = $connection->query($sql1);
 <?php require_once __DIR__ . '/../partials/header.php'; ?>
 
 <div class="container">
+    <h3 class="text-center text-uppercase m-3">Dipartimenti</h3>
+
     <?php if ($result->num_rows != 0) : ?>
         <div class="alert alert-success mt-3" role="alert">
             Total Results : <?= $result->num_rows ?>

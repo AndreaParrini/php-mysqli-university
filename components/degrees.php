@@ -28,6 +28,17 @@ $result = $connection->query($sql1);
 <?php require_once __DIR__ . '/../partials/header.php'; ?>
 
 <div class="container">
+    <h3 class="text-center text-uppercase m-3">Corsi di Laurea</h3>
+    <?php if ($result->num_rows != 0) : ?>
+        <div class="alert alert-success mt-3" role="alert">
+            Total Results : <?= $result->num_rows ?>
+        </div>
+    <?php else : ?>
+        <div class="alert alert-danger mt-3" role="alert">
+            Non ci sono risultati.
+            Total Results : <?= $result->num_rows ?>
+        </div>
+    <?php endif; ?>
     <table class="table table-striped mt-3">
         <thead>
             <tr>
